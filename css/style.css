@@ -1,0 +1,261 @@
+:root {
+  --bg-dark-color: #030303;
+  --text-light-color: #FFFFFF;
+  --text-dark-color: #9D8665;
+  --link-hover-color: #9D8665;
+  --link-active-color: #7E6C51;
+  --btn-bg-dark-red-color: #710707;
+  --line-color: #710707;
+
+
+
+
+  --primary10-color: #FF46461A;
+  --dark-color: #181C29;
+  --static-white-color: #fff;
+  --static-white40-color: #FFFFFF66;
+  --static-white20-color: #FFFFFF33;
+  --tag-purple-color: #4361FF;
+  --tag-pink-color: #FF43F7;
+  --tag-green-color: #06A44F;
+  --content-bg-color: #ECF3F8;
+  --overlay-color: #181C29CC;
+}
+
+.accent-text {
+  font-family: 'Allura', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1em;
+  letter-spacing: 1.3px;
+}
+
+.section__title {
+  font-family: 'Forum', serif;
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.light-title {
+  color: var(--text-light-color);
+}
+
+.dark-title {
+  color: var(--text-dark-color);
+}
+
+.padding-big {
+  padding-inline-start: 240px;
+  padding-inline-end: 240px;
+}
+
+.separator {
+  block-size: 3px;
+  border: none;
+  background-color: var(--line-color);
+}
+
+.dark-theme {
+  background-color: var(--bg-dark-color);
+  color: var(--text-light-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo__img {
+  inline-size: 49px;
+  block-size: 26px;
+}
+
+.logo__text {
+  text-transform: uppercase;
+  font-family: 'Forum', serif;
+  font-size: 28px;
+  line-height: 1em;
+  letter-spacing: 5px;
+}
+
+
+.header__list {
+  display: flex;
+  gap: 55px;
+  padding-block: 62px;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 1em;
+  letter-spacing: 2px;
+}
+
+.header__link {
+  text-transform: uppercase;
+}
+
+.header__link--active {
+  color: var(--link-active-color);
+  pointer-events: none;
+}
+
+.header__link:hover {
+  color: var(--link-hover-color);
+  transition: background-color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+}
+
+.welcome {
+  padding-block-end: 60px;
+}
+
+.welcome-wrapper {
+  padding-block-start: 150px;
+  padding-block-end: 272px;
+  background-image: url(../assets/img/welcome-slider/1.jpg);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+}
+
+.welcome__title {
+  margin-block-end: 25px;
+}
+
+.welcome__caption {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1em;
+  letter-spacing: 2px;
+}
+
+.welcome__btn {
+  border-radius: 10px;
+  background-color: var(--btn-bg-dark-red-color);
+  padding-inline: 64px;
+  padding-block: 24px;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1em;
+  letter-spacing: 2px;
+  margin-block-start: 75px;
+  display: block;
+  inline-size: 360px;
+}
+
+.welcome__slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.slider__index {
+  font-family: monospace;
+}
+
+.slider__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  block-size: 16px;
+  inline-size: 16px;
+  background: #fff;
+}
+
+.dot.active {
+  background: #d3a675;
+  opacity: 1;
+}
+
+.slider__arrows span {
+  font-size: 18px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.visiting__table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 75px 60px;
+}
+
+.explore {
+  padding-block: 75px;
+}
+
+.explore__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.contacts__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__top-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__logo {
+  padding-block: 75px 140px;
+  align-items: start;
+}
+
+.footer__navigation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-inline-size: 363px;
+  padding-block: 87px 50px;
+}
+
+.media__list {
+  display: flex;
+  gap: 25px;
+  padding-block: 162px 55px;
+}
+
+.media__item {
+  size: 48px;
+  border-radius: 24px;
+  border: 1px solid #666666;
+}
+
+.footer__bottom-line {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 50px;
+}
+/*
+.btn {
+  border-radius: 20px;
+  padding: 20px 32px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  background-color: var(--dark-color);
+}
+*/
+.btn:hover {
+  color: var(--dark-color);
+  background-color: var(--static-white-color);
+  transition: background-color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+}
