@@ -24,3 +24,12 @@
   font-weight: thin;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url(./Roboto-Bold.woff2) format('woff2'),
+    url(./Roboto-Bold.woff) format('woff');
+  font-weight: bold;
+  font-display: swap;
+}
