@@ -14,6 +14,11 @@
   --media-border-color: #666;
   --main-font: 'Roboto', sans-serif;
   --accent-font: 'Forum', serif;
+  --section-inline-padding: 240px;
+}
+
+.page {
+  overflow: hidden;
 }
 
 .accent-text {
@@ -23,7 +28,7 @@
 .section__title {
   font-family: var(--accent-font);
   font-weight: 400;
-  font-size: 80px;
+  font-size: clamp(3.125rem, 0.9821rem + 3.3482vw, 5rem);
   line-height: 90px;
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -38,7 +43,7 @@
 }
 
 .section-padding {
-  padding-inline: 240px;
+  padding-inline: var(--section-inline-padding);
   padding-block: 75px;
 }
 
@@ -82,6 +87,14 @@
   text-transform: uppercase;
 }
 
+.header__menu .media__list {
+  display: none;
+}
+
+.header__menu .header__gallery {
+  display: none;
+}
+
 .header__list {
   display: flex;
   gap: 55px;
@@ -115,13 +128,13 @@
 
 .welcome-wrapper {
   z-index: 1;
-  padding-block-start: 150px;
-  padding-block-end: 212px;
+  padding-block: 150px 212px;
 }
 
 .welcome__slider {
   position: absolute;
-  right: 240px;
+  overflow: hidden;
+  right: var(--section-inline-padding);
   bottom: 60px;
   z-index: 0;
 }
@@ -129,6 +142,8 @@
 .welcome__slide {
   position: relative;
   display: block;
+  height: auto;
+  inline-size: 100%;
 }
 
 .welcome__slider::before {
@@ -179,7 +194,7 @@
 
 .welcome__pagination {
   position: absolute;
-  right: 240px;
+  right: var(--section-inline-padding);
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -663,16 +678,8 @@ input[type="radio"]:checked {
 
 @media (width <= 1700px) {
 
-  .section-padding {
-    padding-inline: 120px;
-  }
-
-  .welcome__slider {
-    right: 120px;
-  }
-
-  .welcome__pagination {
-    right: 120px;
+  :root {
+    --section-inline-padding: 120px;
   }
 
   .gallery__grid {
@@ -687,16 +694,8 @@ input[type="radio"]:checked {
 
 @media (width <= 1400px) {
 
-  .section-padding {
-    padding-inline: 80px;
-  }
-
-  .welcome__slider {
-    right: 80px;
-  }
-
-  .welcome__pagination {
-    right: 80px;
+  :root {
+    --section-inline-padding: 80px;
   }
 
   .contacts__name {
@@ -719,12 +718,12 @@ input[type="radio"]:checked {
   }
 
   .tickets__container {
-    justify-content: space-between;
-    gap: 0;
+    justify-content: initial;
+    gap: 55px;
   }
 
   .tickets__form {
-    justify-content: flex-end;
+    justify-content: initial;
   }
 
   .tickets__img {
@@ -771,16 +770,8 @@ input[type="radio"]:checked {
 
 @media (width <= 1250px) {
 
-  .section-padding {
-    padding-inline: 40px;
-  }
-
-  .welcome__slider {
-    right: 40px;
-  }
-
-  .welcome__pagination {
-    right: 40px;
+  :root {
+    --section-inline-padding: 40px;
   }
 
   .header__list {
@@ -865,13 +856,12 @@ input[type="radio"]:checked {
 
 @media (width <= 1024px) {
 
-  .section-padding {
-    padding-inline: 20px;
-    padding-block: 55px 60px;
+  :root {
+    --section-inline-padding: 20px;
   }
 
-  .section__title {
-    font-size: 50px;
+  .section-padding {
+    padding-block: 55px 60px;
   }
 
   .separator {
@@ -883,20 +873,64 @@ input[type="radio"]:checked {
   }
 
   .header__menu {
-    display: none;
+    position: absolute;
+    left: -100%;
+    transition: left .7s ease;
+    inline-size: 297px;
+    block-size: 585px;
+    padding-block-start: 35px;
+    padding-inline: 55px;
+    background: var(--bg-dark-color);
+    z-index: 3;
+    top: 130px;
+  }
+
+  .header__menu-active {
+    display: flex;
+    left: 0;
+  }
+
+  .header__list {
+    flex-direction: column;
+    padding-block: 0;
+    font-size: 20px;
+    gap: 28px;
+  }
+
+  .header__item {
+    position: relative;
+    inline-size: 122px;
+  }
+
+  .header__item::before {
+    content: url(/assets/img/icons/list-arrow.svg);
+    position: absolute;
+    right: 0;
   }
 
   .header__burger {
     display: block;
+  }
 
+  .line {
+    transform-origin: center;
+    transition: transform 0.7s ease, opacity 0.7s ease;
+  }
+
+  .header__burger-open .top {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .header__burger-open .middle {
+    opacity: 0;
+  }
+
+  .header__burger-open .bottom {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .welcome {
     padding-block-start: 0;
-  }
-
-  .welcome__slider {
-    right: 20px;
   }
 
   .welcome__slide {
@@ -1066,6 +1100,37 @@ input[type="radio"]:checked {
 
   .header {
     padding-block: 40px 33px;
+  }
+
+  html:has(.header__menu-active) {
+    overflow-y: hidden;
+  }
+
+  .header__menu {
+    inline-size: 100%;
+    block-size: 100%;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .header__menu .media__list {
+    display: flex;
+    align-self: center;
+  }
+
+  .header__menu .header__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    padding-block-end: 35px;
+    border-bottom: 1px solid #FFFFFF80;
+  }
+
+  .header__gallery img:first-of-type {
+    grid-column: 1/-1;
   }
 
   .welcome {
@@ -1347,6 +1412,10 @@ input[type="radio"]:checked {
   .card__tour {
     font-size: 16px;
   }
+
+  .gallery__grid {
+    block-size: 700px;
+  }
 }
 
 @media (width <= 420px) {
@@ -1358,6 +1427,31 @@ input[type="radio"]:checked {
 
   .header {
     padding-block: 35px 34px;
+  }
+
+  .header__menu {
+    top: 90px;
+    gap: 0;
+  }
+
+  .header__menu .header__gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 12px;
+    padding-block: 36px 20px;
+  }
+
+  .header__gallery img {
+    object-fit: cover;
+    height: 95px;
+  }
+
+  .header__gallery img:nth-of-type(1) {
+    grid-column: 2/3;
+    grid-row: 1;
+  }
+
+  .header__menu .media__list {
+    padding-block-start: 24px;
   }
 
   .logo__text {
@@ -1448,7 +1542,23 @@ input[type="radio"]:checked {
 
 @media (width <= 400px) {
 
+  .visiting__table {
+    padding-inline: 30px;
+  }
+
+  .footer__menu {
+    inline-size: 100%;
+  }
+
   .footer__navigation {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    min-inline-size: initial;
+  }
+
+  .footer__bottom-line {
+    flex-direction: column;
+    gap: 20px;
   }
 }
