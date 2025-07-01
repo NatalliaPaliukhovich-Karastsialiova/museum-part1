@@ -306,10 +306,39 @@
   letter-spacing: 0.13px;
 }
 
-.explore__img {
-  margin-block-start: 15px;
-  inline-size: 720px;
+.explore__comp-container {
+  flex-shrink: 0;
   block-size: 700px;
+  inline-size: 720px;
+  position: relative;
+}
+
+.explore__comp-img {
+  position: absolute;
+  margin-block-start: 15px;
+  overflow: hidden;
+  block-size: 100%;
+}
+
+.explore__comp-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.explore__comp-img img:first-child {
+  object-position: left;
+}
+
+.explore__comp-slider {
+  position: absolute;
+  z-index: 9;
+  cursor: ew-resize;
+  width: 40px;
+  height: 40px;
+  background-color: #2196F3;
+  opacity: 0.7;
+  border-radius: 50%;
 }
 
 .video {
@@ -829,7 +858,7 @@ input[type="radio"]:checked {
     font-size: 20px;
   }
 
-  .explore__img {
+  .explore__comp-img {
     margin-block-start: 0;
   }
 
@@ -1195,10 +1224,14 @@ input[type="radio"]:checked {
     display: none;
   }
 
-  .explore__img {
+  .explore__comp-container {
+    block-size: 705px;
+    inline-size: 100%;
+  }
+
+  .explore__comp-img {
     object-fit: cover;
     inline-size: 100%;
-    block-size: 705px;
   }
 
   .card__title {
@@ -1384,7 +1417,11 @@ input[type="radio"]:checked {
     inline-size: 20px;
   }
 
-  .explore__img {
+  .explore__comp-container {
+    block-size: 368px;
+  }
+
+  .explore__comp-img {
     object-fit: cover;
     inline-size: 100%;
     block-size: 368px;

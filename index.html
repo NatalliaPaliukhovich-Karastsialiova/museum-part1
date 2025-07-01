@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="./css/globals.css">
   <link rel="stylesheet" href="./fonts/fonts.css">
   <link rel="stylesheet" href="./css/style.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css' rel='stylesheet'>
 </head>
 <body>
   <div class="page">
@@ -220,7 +222,14 @@
               </p>
             </div>
           </div>
-          <img src="./assets/img/explore-slider/after.jpg" alt="###" class="explore__img">
+          <div class="explore__comp-container">
+            <div class="explore__comp-img">
+              <img src="./assets/img/explore-slider/before.jpg">
+            </div>
+            <div class="explore__comp-img explore__comp-overlay">
+              <img src="./assets/img/explore-slider/after.jpg">
+            </div>
+          </div>
         </div>
       </section>
       <section class="video section-padding" id="video">
@@ -328,22 +337,22 @@
                 <div class="tickets__counters">
                   <div class="tickets__label">
                     <div class="tickets__counter">
-                      <button class="minus">–</button>
+                      <button class="minus" type="button">–</button>
                       <p class="number">1</p>
-                      <button class="plus">+</button>
+                      <button class="plus" type="button">+</button>
                     </div>
                     <span>Basic 18+</span>
                   </div>
                   <div class="tickets__label">
                     <div class="tickets__counter">
-                      <button class="minus">–</button>
+                      <button class="minus" type="button">–</button>
                       <p class="number">1</p>
-                      <button class="plus">+</button>
+                      <button class="plus" type="button">+</button>
                     </div>
                     <span>Senior 65+</span>
                   </div>
                 </div>
-                <p class="tickets__total-amount">Total €220</p>
+                <p class="tickets__total-amount">Total € <span class="total__value">220</span></p>
                 <button class="btn tickets__btn" type="submit">Buy Now</button>
               </fieldset>
             </form>
@@ -373,7 +382,7 @@
               mail: info@louvre.fr
             </p>
           </div>
-          <img src="./assets/img/map.png" alt="map" class="contacts__img">
+          <div id="map" class="contacts__img"></div>
         </div>
       </section>
     </main>
@@ -453,6 +462,8 @@
       </div>
     </footer>
   </div>
-  <script src="./js/main.js"></script>
+  <script src="./js/utils.js" type="module"></script>
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/map.js"></script>
 </body>
 </html>
