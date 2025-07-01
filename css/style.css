@@ -932,7 +932,7 @@ input[type="radio"]:checked {
   }
 
   .header__item::before {
-    content: url(/assets/img/icons/list-arrow.svg);
+    content: url(../assets/img/icons/list-arrow.svg);
     position: absolute;
     right: 0;
   }
