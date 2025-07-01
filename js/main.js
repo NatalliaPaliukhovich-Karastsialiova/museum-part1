@@ -30,7 +30,7 @@ document.addEventListener('click', (event) => {
     closeMenu();
   }
 });
-/*
+
 const checkState = (event) => {
 
   if(event.target.classList.contains('minus')) {
@@ -54,4 +54,3 @@ ticketsType.addEventListener('change', function(event) {
 });
 
 utils.initComparisons();
-*/
