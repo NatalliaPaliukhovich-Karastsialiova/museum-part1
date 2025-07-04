@@ -25,7 +25,7 @@ const places = [
     title: 'Arc de triomphe du Carrousel'
   },
   {
-    coords: [2.333, 48.8625],
+    coords: [2.3365, 48.8625],
     color: '#777',
     title: 'Musée des Arts décoratifs'
   },
@@ -35,7 +35,7 @@ const places = [
     title: 'Sarcophage d\'Abou Roach'
   },
   {
-    coords: [2.3365, 48.8587],
+    coords: [2.3330, 48.8619],
     color: '#777',
     title: 'Tunnel des Tuileries'
   }

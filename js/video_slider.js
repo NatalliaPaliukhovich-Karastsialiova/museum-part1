@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const slider = tns({
+   slider = tns({
     container: ".video__grid",
     items: 3,
     slideBy: 1,
@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   slider.events.on("indexChanged", (info) => {
-    document.querySelectorAll('.video__item iframe').forEach(iframe => stopVideo(iframe));
+    stopAllVideos();
+    changeMainVideo(info);
     navButtons.forEach(btn => btn.classList.remove("active"));
     navButtons[info.displayIndex - 1].classList.add("active");
   });
@@ -47,9 +48,58 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isAnimating) slider.goTo('next');
   });
 
-  function stopVideo(iframe) {
-    const src = iframe.getAttribute('src');
-    iframe.setAttribute('src', '');
-    iframe.setAttribute('src', src);
+  rebindVideoEvents();
+
+  function stopAllVideos() {
+    document.querySelectorAll('.video__item').forEach(item => {
+      const poster = item.dataset.poster;
+
+      item.innerHTML = `
+        <img class="video__img" src="./assets/video/poster${poster}.jpg" alt="Poster ${poster}">
+        <button class="video__play">
+          <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 21.4348L18 11L0 0.565216V21.4348Z" fill="white"/>
+          </svg>
+        </button>
+      `;
+    });
+
+    rebindVideoEvents();
   }
+
+  function rebindVideoEvents() {
+    document.querySelectorAll('.video__item').forEach(item => {
+      const videoId = item.dataset.videoId;
+      const playBtn = item.querySelector('button');
+
+      if (!playBtn || !videoId) return;
+
+      playBtn.addEventListener('click', () => {
+
+        stopAllVideos();
+
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('allow', 'autoplay; encrypted-media');
+
+        item.innerHTML = '';
+
+        item.appendChild(iframe);
+      });
+    });
+  }
+
+  function changeMainVideo(info){
+    const currentSlide = info.displayIndex - 1;
+    const mainVideo = document.querySelector('.video__main video');
+    if(mainVideo) {
+      mainVideo.setAttribute('poster', `./assets/video/poster${currentSlide}.jpg`);
+      const source = mainVideo.querySelector('source');
+      source?.setAttribute('src', `./assets/video/video${currentSlide}.mp4`);
+      mainVideo.load();
+    }
+  }
+
 });
