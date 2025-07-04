@@ -366,13 +366,19 @@
 .video__grid {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
   margin-block-end: 40px;
 }
 
-.video__grid video {
-  width: calc((100% - 84px) / 3);
-  height: auto;
+.video__item {
+  inline-size: calc((100% - 84px) / 3);
+  block-size: auto;
+  position: relative;
+}
+
+.video__item iframe {
+  inline-size: 100%;
+  block-size: auto;
+  display: block;
   aspect-ratio: 16 / 9;
 }
 
@@ -400,6 +406,16 @@
 .video__arrow {
   color: var(--bullet-inactive-color);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 10px;
+  block-size: 12px;
+}
+
+.video__arrow svg {
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .video__dot:hover {
@@ -593,8 +609,13 @@ input[type="radio"]:checked {
   accent-color: var(--bg-dark-color);
 }
 
-.parallacs img {
+.parallacs {
   block-size: 400px;
+  inline-size: 100%;
+  background-image: url(../assets/img/parallax.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .contacts {
@@ -1244,14 +1265,6 @@ input[type="radio"]:checked {
     block-size: 386px;
   }
 
-  .video__grid video {
-    width: calc((100% - 20px) / 2);
-  }
-
-  .video__grid video:last-child{
-    display: none;
-  }
-
   .video__grid {
     margin-block-end: 20px;
   }
@@ -1512,7 +1525,7 @@ input[type="radio"]:checked {
     grid-template-columns: auto;
   }
 
-  .video__main video {
+  .video__main iframe {
     margin-block: 18px 37px;
     object-fit: cover;
     block-size: 226px;
@@ -1533,11 +1546,6 @@ input[type="radio"]:checked {
     align-items: center;
     inline-size: 7px;
     block-size: 8px;
-  }
-
-  .video__arrow svg {
-    inline-size: 100%;
-    block-size: 100%;
   }
 
   .gallery {

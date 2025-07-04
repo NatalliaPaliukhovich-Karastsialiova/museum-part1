@@ -54,3 +54,18 @@ ticketsType.addEventListener('change', function(event) {
 });
 
 utils.initComparisons();
+
+document.querySelectorAll('.video__item').forEach(el => {
+  el.addEventListener('click', () => {
+    const id = el.dataset.id;
+    el.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/${id}?autoplay=1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    `;
+  });
+});
