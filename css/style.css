@@ -129,6 +129,7 @@
 .welcome-wrapper {
   z-index: 1;
   padding-block: 150px 212px;
+  pointer-events: none;
 }
 
 .welcome__slider-wrapper {
@@ -139,6 +140,7 @@
   z-index: 0;
   inline-size: 1000px;
   block-size: 750px;
+  cursor: pointer;
 }
 
 .welcome__slider-wrapper::before {
