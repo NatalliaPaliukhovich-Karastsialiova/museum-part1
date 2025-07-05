@@ -813,7 +813,7 @@ body.modal-open .tickets__dialog[open] {
 }
 
 .form__section {
-  max-width: 400px;
+  max-inline-size: 400px;
   display: flex;
   flex-direction: column;
   gap: 20px;

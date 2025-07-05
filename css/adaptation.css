@@ -182,6 +182,10 @@
   .media__list {
     margin-block-end: -5px;
   }
+
+  .dialog__container {
+    gap: 30px;
+  }
 }
 
 @media (width <= 1024px) {
@@ -329,6 +333,26 @@
 
   .footer__bottom-line {
     padding-block: 50px;
+  }
+}
+
+@media (width <= 1020px) {
+
+  .tickets__dialog {
+    max-inline-size: 590px;
+  }
+
+  .dialog__container {
+    flex-direction: column;
+    align-items: center;
+    padding-block: 78px 40px;
+    padding-inline: 30px;
+    gap: 50px;
+  }
+
+  .form__section {
+    max-inline-size: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -750,6 +774,62 @@
   .gallery__grid {
     block-size: 700px;
   }
+
+  .tickets__dialog {
+    max-inline-size: 420px;
+    inline-size: auto;
+    overflow: scroll;
+  }
+
+  .dialog__header {
+    font-size: 32px;
+  }
+
+  .dialog__subheader {
+    margin-block-end: 20px;
+  }
+
+  .input__group {
+    flex-direction: column;
+  }
+
+  .summary__section {
+    max-inline-size: 360px;
+    padding-inline: 15px;
+  }
+
+  .summary__details img {
+    inline-size: 120px;
+  }
+
+  .card__container {
+    position: static;
+    block-size: auto;
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-block: 15px 40px;
+    gap: 25px;
+  }
+
+  .card__back {
+    position: relative;
+    block-size: 209px;
+    top: 0;
+    left: 0;
+  }
+
+  .card__front {
+    position: relative;
+    block-size: 209px;
+  }
+
+  .cvc__section {
+    position: absolute;
+    top: 70px;
+    right: 0;
+  }
+
 }
 
 @media (width <= 420px) {
@@ -889,5 +969,13 @@
   .footer__bottom-line {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .summary__section {
+    max-inline-size: 100%;
+  }
+
+  .summary__details img {
+    display: none;
   }
 }
