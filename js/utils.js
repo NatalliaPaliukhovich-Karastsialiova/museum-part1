@@ -53,6 +53,19 @@ export function initComparisons() {
 
     slider = document.createElement("div");
     slider.classList.add("explore__comp-slider");
+
+    const lineTop = document.createElement("div");
+    lineTop.classList.add("explore__comp-line", "line-top");
+    slider.appendChild(lineTop);
+
+    const circle = document.createElement("div");
+    circle.classList.add("explore__comp-circle");
+    slider.appendChild(circle);
+
+    const lineBottom = document.createElement("div");
+    lineBottom.classList.add("explore__comp-line", "line-bottom");
+    slider.appendChild(lineBottom);
+
     img.parentElement.insertBefore(slider, img);
 
     slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
