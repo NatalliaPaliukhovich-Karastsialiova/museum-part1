@@ -41,6 +41,7 @@ const checkState = (event) => {
     utils.addNumber(event, 1);
   }
 
+  utils.changeLocalStorage();
 }
 
 [...ticketsCounter].forEach(item => {
@@ -50,7 +51,12 @@ const checkState = (event) => {
 ticketsType.addEventListener('change', function(event) {
   if (event.target.name === 'tickets-option') {
     utils.calculateTotalBasedOnRadio(event);
+    utils.changeLocalStorage();
   }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  utils.initTicketsSection();
 });
 
 utils.initComparisons();

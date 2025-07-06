@@ -143,11 +143,6 @@
     display: none;
   }
 
-  .video__main video {
-    margin-block-start: 30px;
-    block-size: 503px;
-  }
-
   .explore__container {
     flex-direction: column;
     justify-content: center;
@@ -566,11 +561,6 @@
 
   .card__tour {
     font-size: 18px;
-  }
-
-  .video__main video {
-    margin-block: 20px 17px;
-    block-size: 386px;
   }
 
   .video__grid {

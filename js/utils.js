@@ -18,25 +18,54 @@ export function minusNumber(event, value) {
 
 export function calculateTotalBasedOnRadio(event) {
   calculateTotalAmount(event.target.value);
+  saveInLocalStorage('ticketType', event.target.value);
 }
 
 const calculateTotalAmount = (key) => {
-  const numbers = document.querySelectorAll('.tickets__counter .number');
   const totalAmount = document.querySelector('.tickets__total-amount .total__value');
 
-  const totalTickets = [...numbers].reduce((acc, item) => {
-    acc += parseInt(item.textContent);
-    return acc;
-  }, 0)
+  const basic = parseInt(document.querySelector('.number.basic').textContent);
+  const senior = parseInt(document.querySelector('.number.senior').textContent);
 
-  totalAmount.textContent = totalTickets * priceList.get(key);
+  totalAmount.textContent = (basic * priceList.get(key)) + (senior * priceList.get(key) / 2);
+  saveInLocalStorage('totalAmount', totalAmount.textContent);
 }
 
 const calculateTotalBasedOnCounter = (event) => {
   const selected = document.querySelector('input[name="tickets-option"]:checked');
   if (selected) {
     calculateTotalAmount(selected.value);
+    saveInLocalStorage('ticketType', selected.value);
   }
+}
+
+function saveInLocalStorage(valueName, value) {
+  localStorage.setItem(valueName, value);
+}
+
+export function changeLocalStorage() {
+  const basic = document.querySelector('.number.basic');
+  const senior = document.querySelector('.number.senior');
+  saveInLocalStorage('basicTicketsNumber', basic.textContent);
+  saveInLocalStorage('seniorTicketsNumber', senior.textContent);
+}
+
+export function initTicketsSection() {
+
+  const basicTicketsNumber =localStorage.getItem('basicTicketsNumber');
+  const seniorTicketsNumber =localStorage.getItem('seniorTicketsNumber');
+  const ticketType =localStorage.getItem('ticketType') || 'permanent';
+
+  const radioBtn = document.querySelector(`input[value="${ticketType}"]`);
+  if(radioBtn) radioBtn.checked = true;
+
+  const basic = document.querySelector('.number.basic');
+  const senior = document.querySelector('.number.senior');
+
+  basic.textContent = basicTicketsNumber || '1';
+  senior.textContent = seniorTicketsNumber || '1';
+
+  calculateTotalAmount(ticketType);
 }
 
 export function initComparisons() {

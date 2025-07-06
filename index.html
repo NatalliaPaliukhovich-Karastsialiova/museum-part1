@@ -247,9 +247,40 @@
             </p>
           </div>
           <div class="video__main">
-            <video controls poster="./assets/video/poster0.jpg">
-              <source src="assets/video/video0.mp4" type="video/mp4">
-            </video>
+            <div class="video__wrapper">
+              <video poster="./assets/video/poster0.jpg">
+                <source src="assets/video/video0.mp4" type="video/mp4">
+              </video>
+              <button class="video__main-play">
+                <svg width="220" height="220">
+                  <use href="./assets/img/video_icons.svg#icon-play-big"></use>
+                </svg>
+              </button>
+              <div class="rate__indicator">1×</div>
+            </div>
+            <div class="video__controls">
+              <button id="play-btn">
+                <svg width="23" height="31">
+                  <use href="./assets/img/video_icons.svg#icon-play-small"></use>
+                </svg>
+              </button>
+
+              <input class="controls__progress-bar" type="range" id="progress-bar" value="0" min="0" max="100" step="0.1">
+
+              <button id="sound-btn">
+                <svg width="38" height="31">
+                  <use href="./assets/img/video_icons.svg#icon-sound-level"></use>
+                </svg>
+              </button>
+
+              <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+
+              <button id="fullscreen-btn">
+                <svg width="35" height="35">
+                  <use href="./assets/img/video_icons.svg#icon-full-screen"></use>
+                </svg>
+              </button>
+            </div>
           </div>
           <div class="video__grid">
             <div class="video__item" data-video-id="zp1BXPX8jcU" data-poster="0">
@@ -373,7 +404,7 @@
                   <div class="tickets__label">
                     <div class="tickets__counter">
                       <button class="minus" type="button">–</button>
-                      <p class="number">1</p>
+                      <p class="number basic">1</p>
                       <button class="plus" type="button">+</button>
                     </div>
                     <span>Basic 18+</span>
@@ -381,13 +412,13 @@
                   <div class="tickets__label">
                     <div class="tickets__counter">
                       <button class="minus" type="button">–</button>
-                      <p class="number">1</p>
+                      <p class="number senior">1</p>
                       <button class="plus" type="button">+</button>
                     </div>
                     <span>Senior 65+</span>
                   </div>
                 </div>
-                <p class="tickets__total-amount">Total € <span class="total__value">220</span></p>
+                <p class="tickets__total-amount">Total € <span class="total__value"></span></p>
                 <button class="btn tickets__btn" type="submit">Buy Now</button>
               </fieldset>
             </form>
@@ -507,15 +538,10 @@
         <h2 class="dialog__subheader">Tour to Louvre</h2>
         <div class="input__group">
           <div class="input__icon date">
-            <select><option>Select date</option></select>
-            <span class="input__icon-right">
-              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.49028 0.000490287C6.80951 0.00241447 5.16704 0.5026 3.77048 1.4378C2.37393 2.37301 1.28597 3.70125 0.644144 5.25464C0.00231959 6.80804 -0.164562 8.51684 0.164589 10.1651C0.49374 11.8133 1.30415 13.327 2.49338 14.5147C3.68261 15.7024 5.19727 16.5109 6.8459 16.838C8.49454 17.1651 10.2031 16.996 11.7557 16.3523C13.3083 15.7085 14.6352 14.6188 15.5686 13.2211C16.5021 11.8234 17.0002 10.1803 17 8.49953C16.9994 7.3827 16.7787 6.27691 16.3507 5.24535C15.9227 4.21379 15.2957 3.27665 14.5055 2.48743C13.7153 1.69821 12.7773 1.07239 11.7452 0.645678C10.7131 0.218965 9.6071 -0.000276686 8.49028 0.000490287ZM8.80653 11.7166L4.11814 6.78396H13.4959L8.80653 11.7166Z" fill="#030303"/>
-              </svg>
-            </span>
+            <input type="date" id="date" min="">
           </div>
           <div class="input__icon time">
-            <select><option>Select time</option></select>
+            <select id="time"></select>
             <span class="input__icon-right">
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.49028 0.000490287C6.80951 0.00241447 5.16704 0.5026 3.77048 1.4378C2.37393 2.37301 1.28597 3.70125 0.644144 5.25464C0.00231959 6.80804 -0.164562 8.51684 0.164589 10.1651C0.49374 11.8133 1.30415 13.327 2.49338 14.5147C3.68261 15.7024 5.19727 16.5109 6.8459 16.838C8.49454 17.1651 10.2031 16.996 11.7557 16.3523C13.3083 15.7085 14.6352 14.6188 15.5686 13.2211C16.5021 11.8234 17.0002 10.1803 17 8.49953C16.9994 7.3827 16.7787 6.27691 16.3507 5.24535C15.9227 4.21379 15.2957 3.27665 14.5055 2.48743C13.7153 1.69821 12.7773 1.07239 11.7452 0.645678C10.7131 0.218965 9.6071 -0.000276686 8.49028 0.000490287ZM8.80653 11.7166L4.11814 6.78396H13.4959L8.80653 11.7166Z" fill="#030303"/>
@@ -525,17 +551,19 @@
         </div>
 
         <div class="input__icon name">
-          <input type="text" placeholder="Name">
+          <input type="text" placeholder="Name" id="name">
         </div>
         <div class="input__icon email">
-          <input type="email" placeholder="E-mail">
+          <input type="email" placeholder="E-mail" id="email">
         </div>
         <div class="input__icon phone">
-          <input type="tel" placeholder="Phone">
+          <input type="tel" placeholder="Phone" id="phone">
         </div>
         <div class="input__icon type">
-          <select>
-            <option>Ticket Type</option>
+          <select id="type">
+            <option value="permanent">Permanent exhibition</option>
+            <option value="temporary">Temporary exhibition</option>
+            <option value="combined">Combined Admission</option>
           </select>
           <span class="input__icon-right">
             <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,7 +578,7 @@
             <span>Basic 18+ (20 €)</span>
             <div class="dialog__counter">
               <button>-</button>
-              <span class="counter__number">2</span>
+              <span class="counter__number" id="basic-type">2</span>
               <button>+</button>
             </div>
           </div>
@@ -558,7 +586,7 @@
             <span>Senior 65+ (10 €)</span>
             <div class="dialog__counter">
               <button>-</button>
-              <span class="counter__number">2</span>
+              <span class="counter__number" id="senior-type">2</span>
               <button>+</button>
             </div>
           </div>
@@ -572,9 +600,9 @@
             <h4>Tour to Louvre</h4>
 
             <ul class="details">
-              <li class="date">Friday, August 19</li>
-              <li class="time">16 : 30</li>
-              <li class="exhibition">Temporary exhibition</li>
+              <li class="date" id="preview-date">-</li>
+              <li class="time" id="preview-time">16 : 30</li>
+              <li class="exhibition" id="preview-type">Temporary exhibition</li>
             </ul>
           </div>
 
@@ -639,7 +667,7 @@
         <button class="book__btn">Book</button>
       </div>
 
-      <button class="close-button">
+      <button class="close__button">
         <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1L26 26" stroke="#030303"/>
           <path d="M26 1L1 26" stroke="#030303"/>
@@ -652,6 +680,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="./js/welcome_slider.js" type="module"></script>
+  <script src="./js/main_video.js" type="module"></script>
   <script src="./js/video_slider.js"></script>
   <script src="./js/buy_tickets.js" type="module"></script>
   <script src="./js/utils.js" type="module"></script>
