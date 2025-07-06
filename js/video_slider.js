@@ -35,6 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
       420: {
         items: 2,
         gutter: 16
+      },
+      320: {
+        items: 1,
+        gutter: 16
       }
     }
   });
