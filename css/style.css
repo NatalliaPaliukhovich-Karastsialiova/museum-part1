@@ -311,6 +311,7 @@
   block-size: 700px;
   inline-size: 720px;
   position: relative;
+  margin-block-start: 15px;
 }
 
 .explore__comp-img {
@@ -359,7 +360,7 @@
 }
 
 .video {
-  padding-block-end: 67px;
+  padding-block-end: 77px;
 }
 
 .video__text-wrapper {
@@ -502,7 +503,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .video__item {
-  inline-size: calc((100% - 84px) / 3);
   block-size: auto;
   position: relative;
 }
@@ -783,7 +783,7 @@ input[type="radio"]:checked {
 }
 
 .contacts {
-  padding-block-end: 70px;
+  padding-block-end: 74px;
 }
 
 .contacts__container {
@@ -796,7 +796,7 @@ input[type="radio"]:checked {
   margin-block-end: 55px;
   font-weight: 700;
   font-size: 28px;
-  line-height: 1.1em;
+  line-height: 1.2em;
   letter-spacing: 0;
   max-inline-size: 230px;
 }

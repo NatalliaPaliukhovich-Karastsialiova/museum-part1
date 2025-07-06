@@ -69,6 +69,7 @@ export function initTicketsSection() {
 }
 
 export function initComparisons() {
+
   const overlayImg = document.querySelector(".explore__comp-overlay");
   if(overlayImg) compareImages(overlayImg);
 

@@ -149,6 +149,10 @@
     align-items: center;
   }
 
+  .explore__comp-container {
+    margin-block-start: 0;
+  }
+
   .explore__text {
     gap: 0;
     font-size: 20px;
@@ -306,7 +310,40 @@
   }
 
   .video {
-    padding-block-end: 52px;
+    padding-block-end: 60px;
+  }
+
+  .video__controls {
+    block-size: 60px;
+    padding-inline: 40px;
+    gap: 30px;
+  }
+
+  .video__main {
+    margin-block: 30px 40px;
+  }
+
+  .video__wrapper {
+    block-size: 444px;
+  }
+
+  .video__main-play svg {
+    block-size: 152px;
+    inline-size: 152px;
+  }
+
+  #sound-btn svg {
+    block-size: 20px;
+    inline-size: 26px;
+  }
+
+  #fullscreen-btn svg {
+    block-size: 26px;
+    inline-size: 26px;
+  }
+
+  #volume-slider {
+    inline-size: 143px;
   }
 
   .gallery {
@@ -319,7 +356,11 @@
   }
 
   .contacts {
-    padding-block: 50px 63px;
+    padding-block: 50px 66px;
+  }
+
+  .contacts__name {
+    line-height: 1.3em;
   }
 
   .footer__top-line {
@@ -394,6 +435,10 @@
     margin-block-start: 45px;
   }
 
+  .parallacs {
+    block-size: 300px;
+  }
+
   .contacts__container {
     flex-direction: column;
     gap: 40px;
@@ -407,6 +452,7 @@
   .contacts__name {
     font-size: 20px;
     max-inline-size: 155px;
+    line-height: 1.1em;
   }
 
   .contacts__item {
@@ -485,7 +531,7 @@
 
   .welcome {
     flex-direction: column;
-    padding-block: 0 100px;
+    padding-block: 0 95px;
   }
 
   .welcome-wrapper {
@@ -519,12 +565,47 @@
   }
 
   .visiting {
-    padding-block-end: 80px;
+    padding-block-end: 82px;
   }
 
   .visiting__table {
     gap: 43px 56px;
     padding-inline: 56px;
+  }
+
+  .video__main {
+    margin-block: 20px;
+  }
+
+  .video__wrapper {
+    block-size: 331px;
+  }
+
+  .video__controls {
+    position: relative;
+    block-size: 54px;
+    padding-inline: 30px;
+  }
+
+  .controls__progress-bar {
+    position: absolute;
+    top: -5px;
+    left: -2px;
+    inline-size: 100%;
+  }
+
+  #sound-btn svg {
+    block-size: 21px;
+    inline-size: 27px;
+  }
+
+  #fullscreen-btn svg {
+    block-size: 27px;
+    inline-size: 27px;
+  }
+
+  #volume-slider {
+    flex-grow: 1;
   }
 
   .gallery {
@@ -568,7 +649,7 @@
   }
 
   .video {
-    padding-block-end: 72px;
+    padding-block-end: 80px;
   }
 
   .tickets__form {
@@ -579,8 +660,12 @@
     margin-block-start: 40px;
   }
 
+  .tickets__counters {
+    gap: 30px;
+  }
+
   .contacts {
-    padding-block-end: 70px;
+    padding-block-end: 73px;
   }
 
   .parallacs img {
@@ -868,7 +953,7 @@
   }
 
   .welcome {
-    padding-block: 0 81px;
+    padding-block: 0 77px;
   }
 
   .welcome__caption {
@@ -879,6 +964,31 @@
     padding-block: 37px;
   }
 
+  .video__wrapper {
+    block-size: 178px;
+  }
+
+  .video__controls {
+    block-size: 49px;
+    padding-inline: 20px;
+  }
+
+  .video__main {
+    margin-block: 18px 40px;
+  }
+
+  .video__main-play svg {
+    block-size: 50px;
+    inline-size: 50px;
+  }
+
+  .controls__progress-bar {
+    position: absolute;
+    top: -6px;
+    left: -2px;
+    inline-size: 100%;
+  }
+
   .video__text-wrapper {
     grid-template-columns: auto;
   }
@@ -887,6 +997,33 @@
     margin-block: 18px 37px;
     object-fit: cover;
     block-size: 226px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb{
+    block-size: 10px;
+    inline-size: 10px;
+    margin-top: -3px;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    block-size: 10px;
+    inline-size: 10px;
+    margin-top: -3px;
+  }
+
+  #play-btn svg {
+    inline-size: 14px;
+    block-size: 18px;
+  }
+
+  #sound-btn svg {
+    inline-size: 18px;
+    block-size: 14px;
+  }
+
+  #fullscreen-btn svg {
+    inline-size: 18px;
+    block-size: 18px;
   }
 
   .video__grid {
@@ -915,7 +1052,7 @@
   }
 
   .contacts {
-    padding-block: 37px 40px;
+    padding-block: 37px 42px;
   }
 
   .contacts__img {
@@ -925,7 +1062,7 @@
 
   .contacts__name {
     font-size: 16px;
-    line-height: 1.15em;
+    line-height: 1.2em;
     max-inline-size: 125px;
   }
 

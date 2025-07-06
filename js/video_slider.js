@@ -12,7 +12,31 @@ document.addEventListener("DOMContentLoaded", function () {
     loop: true,
     rewind: false,
     preventScrollOnTouch: 'auto',
-    gutter: 42
+    gutter: 42,
+
+    responsive: {
+
+      1920: {
+        items: 3,
+        gutter: 42
+      },
+      1600: {
+        items: 3,
+        gutter: 24
+      },
+      1025: {
+        items: 3,
+        gutter: 10
+      },
+      960: {
+        items: 3,
+        gutter: 41
+      },
+      420: {
+        items: 2,
+        gutter: 16
+      }
+    }
   });
 
   const navButtons = document.querySelectorAll(".video__dot");

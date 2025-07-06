@@ -60,4 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 utils.initComparisons();
-
+/*
+window.addEventListener('resize', () => {
+  utils.initComparisons();
+});
+*/
