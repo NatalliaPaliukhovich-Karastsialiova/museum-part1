@@ -13,10 +13,19 @@
   --hover-color: #d3a675;
   --dot-active: #333;
   --media-border-color: #666;
+  --video-controls-color: #B3B3B3;
+  --progress-bar-color: #C4C4C4;
+  --card-back: #939393;
+  --stripe-color: #161615;
   --main-font: 'Roboto', sans-serif;
   --accent-font: 'Forum', serif;
   --section-inline-padding: 240px;
   --explore-circle-size: 39px;
+}
+
+input,
+select {
+  font-family: var(--main-font);
 }
 
 .page {
@@ -433,7 +442,7 @@
 }
 
 .video__controls {
-  color: #B3B3B3;
+  color: var(--video-controls-color);
   inline-size: 100%;
   block-size: 85px;
   background-color: var(--black-color);
@@ -454,7 +463,7 @@
 input[type="range"] {
   -webkit-appearance: none;
   block-size: 5px;
-  background: linear-gradient(to right, #710707 50%, #C4C4C4 50%);
+  background: linear-gradient(to right, var(--line-color) 50%, var(--progress-bar-color) 50%);
   border-radius: 0;
   outline: none;
 }
@@ -466,7 +475,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 input[type="range"]::-moz-range-track {
   block-size: 5px;
-  background:#C4C4C4;
+  background:var(--progress-bar-color);
   border-radius: 0;
 }
 
@@ -879,15 +888,6 @@ input[type="radio"]:checked {
   padding-block: 50px 55px;
 }
 
-/*
----------------------------------------------
----------------------------------------------
----------------------------------------------
----------------------------------------------
----------------------------------------------
-*/
-
-
 body.modal-open {
   overflow: hidden;
 }
@@ -902,7 +902,6 @@ dialog::backdrop {
   position: fixed;
   transform: translateX(-100%);
   transition: opacity .3s ease, transform 1s ease;
-  overflow: hidden;
   opacity: 0;
   pointer-events: none;
 }
@@ -1139,6 +1138,21 @@ dialog.open {
   content: url(../assets/img/icons/exhibition.svg);
 }
 
+.input__icon:has(.invalid) {
+  border: 4px solid var(--line-color);
+  position: relative;
+}
+
+.error-message {
+  color: var(--line-color);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  display: block;
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+}
+
 .ticket-summary {
   display: grid;
   grid-template-columns: auto auto;
@@ -1147,6 +1161,10 @@ dialog.open {
   font-size: 22px;
   font-weight: 400;
   margin-block-end: 10px;
+}
+
+.ticket-summary div:nth-of-type(2n) {
+  justify-self: end;
 }
 
 .pill {
@@ -1172,7 +1190,7 @@ dialog.open {
 
 .tickets__dialog hr {
   border: none;
-  border-top: 2px solid #7c0d1c;
+  border-top: 2px solid var(--order-btn);
 }
 
 .card__container {
@@ -1188,7 +1206,7 @@ dialog.open {
   left: 110px;
   inline-size: 100%;
   block-size: 100%;
-  background: #939393;
+  background: var(--card-back);
   border-radius: 8px;
   padding-block: 25px 15px;
   z-index: 0;
@@ -1196,7 +1214,7 @@ dialog.open {
 
 .card__back .stripe {
   block-size: 45px;
-  background: #161615;
+  background: var(--stripe-color);
 }
 
 .cvc__section {
@@ -1216,8 +1234,6 @@ dialog.open {
 .cvc__section small {
   font-size: 10px;
 }
-
-/*FRONT*/
 
 .card__front {
   position: absolute;
@@ -1254,7 +1270,7 @@ dialog.open {
 .card__field label {
   font-size: 12px;
   line-height: 1em;
-  color: #161615;
+  color: var(--stripe-color);
 }
 
 .card__field .number {

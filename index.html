@@ -552,12 +552,15 @@
 
         <div class="input__icon name">
           <input type="text" placeholder="Name" id="name">
+          <small class="error-message"></small>
         </div>
         <div class="input__icon email">
           <input type="email" placeholder="E-mail" id="email">
+          <small class="error-message"></small>
         </div>
         <div class="input__icon phone">
           <input type="tel" placeholder="Phone" id="phone">
+          <small class="error-message"></small>
         </div>
         <div class="input__icon type">
           <select id="type">
@@ -575,7 +578,7 @@
         <div class="dialog__tickets-section">
           <h4>Entry Ticket</h4>
           <div class="dialog__tickets-row">
-            <span>Basic 18+ (20 €)</span>
+            <span>Basic 18+ (<span class="dialog__general-price">0</span> €)</span>
             <div class="dialog__counter">
               <button>-</button>
               <span class="counter__number" id="basic-type">2</span>
@@ -583,7 +586,7 @@
             </div>
           </div>
           <div class="dialog__tickets-row">
-            <span>Senior 65+ (10 €)</span>
+            <span>Senior 65+ (<span class="dialog__senior-price">0</span> €)</span>
             <div class="dialog__counter">
               <button>-</button>
               <span class="counter__number" id="senior-type">2</span>
@@ -610,16 +613,24 @@
         </div>
 
         <div class="ticket-summary">
-          <div><span class="pill">2</span> Basic (20 €)</div>
-          <div>40 €</div>
-          <div><span class="pill">2</span> Senior (10 €)</div>
-          <div>20 €</div>
+          <div><span class="pill pill-basic">0</span> Basic (
+            <span class="dialog__general-price-preview">0</span> €)
+          </div>
+          <div>
+            <span class="basic-total">0</span> €
+          </div>
+          <div><span class="pill pill-senior">0</span> Senior (
+            <span class="dialog__senior-price-preview">0</span> €)
+          </div>
+          <div>
+            <span class="senior-total">20</span> €
+          </div>
         </div>
 
         <hr>
         <h3 class="dialog__total">
           <span>Total:</span>
-          <span>60 €</span>
+          <span class="total">0</span>
         </h3>
 
         <div class="card__container">

@@ -21,6 +21,10 @@ export function calculateTotalBasedOnRadio(event) {
   saveInLocalStorage('ticketType', event.target.value);
 }
 
+export function getPrice(type, isSenior = false) {
+  return isSenior ? priceList.get(type) / 2 : priceList.get(type);
+}
+
 const calculateTotalAmount = (key) => {
   const totalAmount = document.querySelector('.tickets__total-amount .total__value');
 
